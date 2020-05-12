@@ -52,6 +52,7 @@ calculations(a: 12, b: 0) == nil
 calculations(a: 0, b: 0) == nil
 
 
+
 // *Пользователь вводит сумму вклада в банк и годовой процент. Найти сумму вклада через 5 лет.
 func deposit(money: Double, percent: Double) -> Double? {
     if money <= 0 { return nil }
