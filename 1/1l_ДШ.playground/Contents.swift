@@ -52,7 +52,6 @@ calculations(a: 12, b: 0) == nil
 calculations(a: 0, b: 0) == nil
 
 
-
 // *Пользователь вводит сумму вклада в банк и годовой процент. Найти сумму вклада через 5 лет.
 func deposit(money: Double, percent: Double) -> Double? {
     if money <= 0 { return nil }
@@ -71,20 +70,28 @@ deposit(money: -100, percent: 0) == nil
 deposit(money: 100, percent: 0) == 100
 deposit(money: 100, percent: -10) == 59.049
 
-
+let r = "\(-1 * -1)"
 
 // поменять первую и последнюю цифры в числе местами
-let number = 1234567
 func replaceFirstAndLast(in number: Int) -> Int {
-    if String(number).count < 2 { return number }
+    if String(abs(number)).count < 2 { return number }
     
+    var sign = 1
     var n = "\(number)"
-    
+
+    if number < 0 {
+        sign = -1
+        n = "\(number * -1)"
+    }
+
     return Int(n.removeLast().description
         + n[n.index(after: n.startIndex)...]
-        + n.first!.description)!
+        + n.first!.description)! * sign
 }
 // tests
 replaceFirstAndLast(in: 1234567) == 7234561
 replaceFirstAndLast(in: 0) == 0
 replaceFirstAndLast(in: 12) == 21
+replaceFirstAndLast(in: +6*2/4) == 3
+replaceFirstAndLast(in: -1) == -1
+replaceFirstAndLast(in: -12) == -21
