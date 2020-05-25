@@ -74,7 +74,9 @@ func getListOfSimpleNumbers(to n: Int) -> [Int] {
         
         index += 1
         
-        list = list.prefix(upTo: index) + list[index...].filter { $0 % i > 0 && $0 % i < i }
+        list = list
+            .prefix(upTo: index) + list[index...]
+                .filter { $0 % i > 0 && $0 % i < i }
     }
     return list
 }
