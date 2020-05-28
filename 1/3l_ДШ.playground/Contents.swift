@@ -55,6 +55,10 @@ struct Truck {
     
     mutating func action(_ parameter: TruckActions) {
         switch parameter {
+        case .openWindows:
+            windows = .opened
+        case .closeWindows:
+            windows = .closed
         case .runEngine:
             engine = .run
         case .stopEngine:
